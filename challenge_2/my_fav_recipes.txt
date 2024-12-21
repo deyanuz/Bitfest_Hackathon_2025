@@ -1,0 +1,85 @@
+Name: Pancakes
+Ingredients: 2 cups Flour, 1 cup Milk, 2 pcs Egg, 2 tbsp Sugar, 1 tsp Baking Powder
+Instructions: Mix all ingredients in a bowl. Heat a skillet and pour batter. Cook on both sides until golden. Serve warm with syrup.
+Taste: Sweet
+Preparation Time: 15 minutes
+Cuisine: American
+Reviews: 4.5
+
+
+Name: Spaghetti Bolognese
+Ingredients: 200 grams Spaghetti, 300 grams Ground Beef, 1 cup Tomato Sauce, 1 tbsp Olive Oil, 1 clove Garlic
+Instructions: Cook spaghetti as per package instructions. In a pan, sauté garlic in olive oil, add beef, and cook. Mix in tomato sauce and combine with spaghetti.
+Taste: Savory
+Preparation Time: 30 minutes
+Cuisine: Italian
+Reviews: 4.7
+
+
+Name: Chicken Curry
+Ingredients: 500 grams Chicken, 2 cups Coconut Milk, 2 tbsp Curry Powder, 1 Onion, 1 tbsp Ginger-Garlic Paste
+Instructions: Sauté onion and ginger-garlic paste. Add chicken and curry powder, cook until brown. Add coconut milk and simmer until chicken is cooked through.
+Taste: Spicy
+Preparation Time: 40 minutes
+Cuisine: Indian
+Reviews: 4.8
+
+
+Name: Caesar Salad
+Ingredients: 1 head Romaine Lettuce, 1/2 cup Croutons, 1/4 cup Parmesan Cheese, 3 tbsp Caesar Dressing
+Instructions: Chop lettuce and mix with croutons and parmesan cheese. Add Caesar dressing and toss well before serving.
+Taste: Savory
+Preparation Time: 10 minutes
+Cuisine: Mediterranean
+Reviews: 4.6
+
+
+Name: Chocolate Chip Cookies
+Ingredients: 2 cups Flour, 1 cup Butter, 1 cup Sugar, 2 pcs Egg, 1 cup Chocolate Chips, 1 tsp Vanilla Extract, 1 tsp Baking Soda
+Instructions: Cream butter and sugar. Add eggs and vanilla. Mix in flour, baking soda, and chocolate chips. Drop by spoonfuls onto baking sheet and bake at 180°C for 10-12 minutes.
+Taste: Sweet
+Preparation Time: 25 minutes
+Cuisine: American
+Reviews: 4.9
+
+
+Name: Lemonade
+Ingredients: 4 Lemons (juiced), 1/2 cup Sugar, 4 cups Water, Ice Cubes, Lemon Slices (for garnish)
+Instructions: In a pitcher, mix lemon juice, sugar, and water until sugar dissolves. Add ice cubes and garnish with lemon slices. Serve chilled.
+Taste: Sweet
+Preparation Time: 5 minutes
+Cuisine: American
+Reviews: 4.6
+
+Name: Margherita Pizza
+Ingredients: 1 Pizza Dough, 1 cup Tomato Sauce, 1 cup Mozzarella Cheese, 1 tbsp Olive 0il, 5-6 Basil Leaves
+Instructions: Spread tomato sauce on the pizza dough. Add mozzarella cheese and basil leaves. Drizzle olive oil on top. Bake in a preheated oven at 220°C for 10-15 minutes.
+Taste: Savory
+Preparation Time: 20 minutes
+cuisine: Italian
+Reviews: 4.8
+
+Name: Vegetable Stir-Fry
+Ingredients: 2 cups Mixed Vegetables (Carrots, Broccoli, Bell Peppers), 2 tbsp Soy Sauce, 1 tbsp Sesame 0il, 1 clove Garlic, 1 tsp Ginger
+Instructions: Heat sesame oil in a wok. Add garlic and ginger, sauté for 1 minute. Add vegetables and stir-fry for 5-7 minutes. Add soy sauce and mix well. Serve hot.
+Taste: Savory
+Preparation Time: 15 minutes
+Cuisine: Asian
+Reviews: 4.7
+
+Name: Banana Smoothie
+Ingredients: 2 ripe Bananas, 1 cup Milk, 1 tbsp Honey, 1/2 tsp vanilla Extract, Ice Cubes (optional)
+Instructions: Combine bananas, milk, honey, and vanilla in a blender. Blend until smooth. Add ice cubes if desired. Serve chilled.
+Taste: Sweet
+Preparation Time: 5 minutes
+Cuisine: American
+Reviews: 4.5
+
+Name: Beef Tacos
+Ingredients: 300 grams Ground Beef, 6 Taco Shells, 1 cup Lettuce (shredded), 1 Tomato (diced), 1/2 cup Cheddar Cheese, 2 tbsp Taco Seasoning
+Instructions: Cook ground beef in a pan with taco seasoning. Fill taco shells with beef, lettuce, tomatoes, and cheese. Serve with salsa or sour cream.
+Taste: Savory
+Preparation Time: 20 minutes
+Cuisine: Mexican
+Reviews: 4.9
+

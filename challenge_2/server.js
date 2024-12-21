@@ -1,6 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const Tesseract = require("tesseract.js");
+const fs = require("fs");
+const path = require("path");
+const multer = require("multer");
 const app = express();
 const Ingredient = require("./models/Ingredient");
 app.use(bodyParser.json());
@@ -19,6 +23,8 @@ app.get("/", (req, res) => {
 app.listen(5000, () => {
   console.log("server running on port 5000");
 });
+
+//task-2
 
 app.post("/ingredients", async (req, res) => {
   try {
@@ -105,5 +111,147 @@ app.get("/ingredients/search", async (req, res) => {
       message: "Error searching for ingredients",
       error: error.message,
     });
+  }
+});
+
+//task-3
+
+// Parse recipe text files
+const parseRecipeTextFiles = (folderPath, outputFilePath) => {
+  const files = fs.readdirSync(folderPath);
+
+  files.forEach((file) => {
+    const filePath = path.join(folderPath, file);
+
+    if (file.endsWith(".txt")) {
+      const content = fs.readFileSync(filePath, "utf-8");
+      fs.appendFileSync(outputFilePath, content + "\n\n");
+    }
+  });
+
+  console.log("Recipe texts combined into:", outputFilePath);
+};
+
+// Function to clean up Tesseract's output
+const cleanText = (text) => {
+  return text.replace(/\n+/g, "\n").trim(); // Replace multiple newlines with a single newline and trim leading/trailing ones
+};
+
+// Parse recipe images using OCR
+const parseRecipeImages = async (folderPath, outputFilePath) => {
+  const files = fs.readdirSync(folderPath);
+
+  for (const file of files) {
+    const filePath = path.join(folderPath, file);
+
+    if (file.endsWith(".jpg") || file.endsWith(".png")) {
+      const { data } = await Tesseract.recognize(filePath, "eng");
+      const cleanedText = cleanText(data.text);
+      fs.appendFileSync(outputFilePath, cleanedText + "\n\n");
+    }
+  }
+
+  console.log("Recipe images combined into:", outputFilePath);
+};
+
+// Combine recipes into my_fav_recipes.txt
+const combineRecipes = async () => {
+  const folderPath = "./recipes"; // Folder containing saved recipe files
+  const outputFilePath = "./my_fav_recipes.txt";
+
+  // Create/clear the output file
+  fs.writeFileSync(outputFilePath, "");
+
+  // Parse text files
+  parseRecipeTextFiles(folderPath, outputFilePath);
+
+  // Parse image files
+  await parseRecipeImages(folderPath, outputFilePath);
+};
+
+// Configure Multer to save files with their original names
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "recipes")); // Save files in the "recipes" folder
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname); // Save file with its original name
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    const allowedExtension = ".txt";
+    const fileExt = path.extname(file.originalname).toLowerCase();
+    if (fileExt !== allowedExtension) {
+      return cb(new Error("Only .txt files are allowed."));
+    }
+    cb(null, true);
+  },
+  limits: { fileSize: 1 * 1024 * 1024 }, // 1 MB file size limit
+});
+// Endpoint to upload a .txt file
+app.post("/recipes/add-text", upload.single("file"), (req, res) => {
+  try {
+    const file = req.file;
+
+    if (!file) {
+      return res.status(400).json({ message: "No file uploaded." });
+    }
+    combineRecipes();
+    res.status(201).json({
+      message: "Text file uploaded successfully.",
+      filename: file.originalname,
+      filePath: file.path,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error uploading file.", error: error.message });
+  }
+});
+
+const storageImg = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "recipes")); // Save files in the "recipes" folder
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname); // Save file with its original name
+  },
+});
+
+const uploadImg = multer({
+  storage: storageImg,
+  fileFilter: (req, file, cb) => {
+    const allowedExtensions = [".jpg", ".png"];
+    const fileExt = path.extname(file.originalname).toLowerCase();
+    if (!allowedExtensions.includes(fileExt)) {
+      return cb(new Error("Only .jpg and .png files are allowed."));
+    }
+    cb(null, true);
+  },
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5 MB file size limit
+});
+
+// Endpoint to upload an image file
+app.post("/recipes/add-image", uploadImg.single("image"), (req, res) => {
+  try {
+    const file = req.file;
+
+    if (!file) {
+      return res.status(400).json({ message: "No file uploaded." });
+    }
+    combineRecipes();
+
+    res.status(201).json({
+      message: "Image file uploaded successfully.",
+      filename: file.originalname,
+      filePath: file.path,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error uploading file.", error: error.message });
   }
 });

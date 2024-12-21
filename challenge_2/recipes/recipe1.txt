@@ -1,0 +1,7 @@
+Name: Pancakes
+Ingredients: 2 cups Flour, 1 cup Milk, 2 pcs Egg, 2 tbsp Sugar, 1 tsp Baking Powder
+Instructions: Mix all ingredients in a bowl. Heat a skillet and pour batter. Cook on both sides until golden. Serve warm with syrup.
+Taste: Sweet
+Preparation Time: 15 minutes
+Cuisine: American
+Reviews: 4.5
