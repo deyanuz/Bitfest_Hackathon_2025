@@ -17,7 +17,7 @@ mongoose
   .catch((e) => console.error(e.message));
 
 app.get("/", (req, res) => {
-  res.send("hello, world! now fuck off");
+  res.send("hello, world!");
 });
 
 app.listen(5000, () => {
